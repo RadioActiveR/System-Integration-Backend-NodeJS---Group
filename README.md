@@ -1,4 +1,4 @@
-# 💾 SIA/DBMS Activities Repository
+# 💾 SIA/DBMS Activities Repository - SECTION A
 
 An organized collection of activities and projects completed for the Systems Integration and Application (SIA) and Database Management Systems (DBMS) courses.
 
@@ -34,10 +34,10 @@ npm i express mysql2 cors dotenv
 ```
   
 ## MEMBERS
-- Harvey Masalihit
-- Ciara Saycon
-- Richard Cornelius V. Timosa II
-- Irald Villaflores
-- Pshyren May Viray
-- Elx Vincent Yocor
-- Biance Briel Cruz
+- # Harvey Masalihit
+- # Ciara Saycon
+- # Richard Cornelius V. Timosa II
+- # Irald Villaflores
+- # Pshyren May Viray
+- # Elx Vincent Yocor
+- # Biance Briel Cruz
