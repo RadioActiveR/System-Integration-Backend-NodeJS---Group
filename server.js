@@ -35,6 +35,7 @@ app.listen(port, () => {
 
 });
 
+
 // ===== USERS =====
 
 // Get all users
@@ -66,11 +67,12 @@ app.get('/users/:id', (req, res) => {
     });
 });
 
+
 // Create new user
 app.post('/users', (req, res) => {
     const { id, name } = req.body;
-    
-    if (!id || !name) {
+   
+  if (!id || !name) {
         res.status(400).send('ID and name are required');
         return;
     }
@@ -85,6 +87,7 @@ app.post('/users', (req, res) => {
         res.json({ id: id, name: name });
     });
 });
+
 
 // Update user
 app.put('/users/:id', (req, res) => {
@@ -122,6 +125,7 @@ app.delete('/users/:id', (req, res) => {
         res.send('User deleted');
     });
 });
+
 
 // ===== PRODUCTS =====
 
