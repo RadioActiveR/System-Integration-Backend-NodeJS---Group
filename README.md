@@ -39,5 +39,5 @@ npm i express mysql2 cors dotenv
 - # Richard Cornelius V. Timosa II
 - # Irald Villaflores
 - # Pshyren May Viray
-- # Elx Vincent Yocor
+- # Ellix Vincent Yocor
 - # Biance Briel Cruz
