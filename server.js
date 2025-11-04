@@ -27,7 +27,7 @@ db.connect((error)=> {
 
 });
 
-//Get
+//Get all USERS
 server.get(`/users`, (req, res) =>{
     db.query('SELECT * FROM users', (error, result) => {
         res.json(result);
@@ -44,7 +44,19 @@ server.get('/address', (req, res) => {
     });
 });
 
-//With Parameter
+//GET all PRODUCTS
+server.get('/product', (req, res) => {
+    db.query('SELECT * FROM product', (error, result)=>
+    {
+        if(error) throw error;
+        res.json(result);
+        console.log(result);
+    });
+});
+
+
+//GET With Parameter
+//USERS
 server.get('/user/:user_id', (req, res) => {
     console.log(req);
 db.query('SELECT * FROM users WHERE id = ?', 
@@ -58,9 +70,19 @@ db.query('SELECT * FROM users WHERE id = ?',
 });
 });
 
+//PRODUCTS
+server.get('/product/:product_id', (req, res) => {
+    db.query('SELECT * FROM product WHERE id = ?', 
+        [req.params.product_id],  
+        (error, result) => {
+            if (error) return res.status(500).json({ message: error.message });
+            res.json(result);
+        });
+});
 
 
 //POST METHOD
+//USERS
 server.post ('/create-user', (req, res)=>{
     console.log(req.body);
     const {id, name, NICKNAME} = req.body;
@@ -88,6 +110,20 @@ server.post('/create-address', (req, res) =>{
 });
 
 
+//POST PRODUCTS
+server.post('/products', (req,res)=>{
+    const {id, name, price} = req.body;
+    const createProducts = 'INSERT INTO products (id, name, price) VALUES (?,?,?)';
+    
+    db.query(createProducts, [id, name, price], (error,result)=>{
+        if (error) throw error;
+        res.json({
+            messsage: 'Product successfully created!',
+            id, name, price
+        });
+    });
+});
+
 
 //POST METHOD
 
@@ -104,6 +140,7 @@ server.post('/create-user2', (req, res) => {
 });
 
 //PUT METHOD
+//USERS
 server.put('/update-user/:id', (req, res) =>{
     const userIdParam = req.params.id;
     const {name, NICKNAME} = req.body;
@@ -121,9 +158,25 @@ server.put('/update-user/:id', (req, res) =>{
          });
  });
 
+ //PUT PRODUCTS
+ server.put('/products/:id', (req,res)=>{
+    const {id} = req.params;
+    const {name, price} = req.body;
+    const updateProducts = 'UPDATE products SET name = ?, price = ? WHERE id = ?';
+    
+    db.query(updateProducts, [name, price, id], (error,result)=>{
+        if (error) throw error;
+        res.json({
+           status: true,
+           message: 'Successfully updated!'
+        });
+    });
+});
+
 
 
  //DELETE METHOD
+ //USERS
  server.delete('/delete-user/:id', (req, res) =>{
     const deleteUser = 'Delete from users where id = ?';
     db.query(deleteUser, req.params.id, (error, result) =>
@@ -141,3 +194,19 @@ server.put('/update-user/:id', (req, res) =>{
             console.log(result);
         })
  });
+
+
+ //DELETE PRODUCTS
+ server.delete('/products/:id', (req,res)=>{
+    const {id,name,price} = req.body;
+
+    const deleteProducts = 'DELETE FROM products where id = ?';
+    
+    db.query(deleteProducts, [id, name, price], (error,result)=>{
+        if (error) throw error;
+        res.json({
+           status: true,
+           message: 'Successfully deleted!'
+        });
+    });
+});
