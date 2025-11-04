@@ -1,7 +1,7 @@
 # SIA/DBMS ACTIVITIES
 - Activities for SIA and DBMS
 
-#TASKS DONE ✅
+# TASKS DONE ✅
 - Activity 1: Basic API Fetching + package.json - Done✅
 - Activity 2: Dynamic Resource Fetching - Done✅
 - Activity 3: Server and Database Setup - Done✅
