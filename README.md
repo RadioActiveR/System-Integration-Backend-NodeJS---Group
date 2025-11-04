@@ -24,9 +24,6 @@ This project covers the full **CRUD** (Create, Read, Update, Delete) cycle using
 
 To get this project running locally, execute the following command in your project directory's terminal to install all necessary dependencies:
 
-```bash
-npm i express mysql2 cors dotenv
-
 # Installation
 Paste this into Project Folder Terminal
 ``` Bash
